@@ -1,0 +1,43 @@
+﻿version: '3.8'
+
+services:
+  # 1. RABBITMQ (Mesaj Kuyruk Sistemi)
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: microservice_rabbitmq
+    ports:
+      - "5672:5672"   # Uygulamaların bağlanacağı port (MassTransit buraya gelecek)
+      - "15672:15672" # Tarayıcıdan gireceğin yönetim paneli
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    restart: always
+
+  # 2. POSTGRESQL (Order.API için)
+  postgres:
+    image: postgres:latest
+    container_name: microservice_postgres
+    environment:
+      POSTGRES_USER: saiteren
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: OrderDB
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  # 3. MONGODB (Stock.API için)
+  mongo:
+    image: mongo:latest
+    container_name: microservice_mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo_data:/data/db
+    restart: always
+
+volumes:
+  rabbitmq_data:
+  postgres_data:
+  mongo_data:
+
