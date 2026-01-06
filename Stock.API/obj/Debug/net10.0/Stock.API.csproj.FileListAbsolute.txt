@@ -1,0 +1,8 @@
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.csproj.AssemblyReference.cache
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/rpswa.dswa.cache.json
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.GeneratedMSBuildEditorConfig.editorconfig
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.AssemblyInfoInputs.cache
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.AssemblyInfo.cs
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.csproj.CoreCompileInputs.cache
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.MvcApplicationPartsAssemblyInfo.cache
