@@ -5,5 +5,5 @@ namespace Order.API.DTOs;
 public class CreateOrderDto
 {
     public Guid CustomerId { get; set; }
-    public List<CreateOrderItemDto> OrderItems { get; set; }
+    public required List<CreateOrderItemDto> OrderItems { get; set; }
 }

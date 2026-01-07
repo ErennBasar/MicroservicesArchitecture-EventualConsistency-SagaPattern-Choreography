@@ -1,6 +1,8 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Order.API.DTOs;
 using Order.API.Models;
+using Order.API.Models.Enums;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<OrderApiDbContext>(options =>
 {
-    options.UseNpgsql(builder.Configuration.GetConnectionString("Npgsql"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("OrderDbPgSQL"));
 });
 
 builder.Services.AddMassTransit(cfg =>

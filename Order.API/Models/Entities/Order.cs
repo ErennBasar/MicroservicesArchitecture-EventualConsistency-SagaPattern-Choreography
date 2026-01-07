@@ -8,7 +8,7 @@ public class Order
     public Guid OrderId { get; set; }
     public Guid CustomerId { get; set; }
     public DateTime OrderDate { get; set; } 
-    [Column(TypeName = "decimal(18.2)")]
+    [Column(TypeName = "decimal(18,2)")]
     public Decimal TotalPrice { get; set; }
     public string? FailMessage { get; set; }
     public OrderStatus OrderStatus { get; set; }

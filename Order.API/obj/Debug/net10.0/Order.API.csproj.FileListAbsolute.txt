@@ -240,3 +240,15 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/obj/Debug/net10.0/Order.API.pdb
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/obj/Debug/net10.0/Order.API.genruntimeconfig.cache
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/obj/Debug/net10.0/ref/Order.API.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/MassTransit.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/MassTransit.Abstractions.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/MassTransit.RabbitMqTransport.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Microsoft.OpenApi.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/RabbitMQ.Client.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Shared.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Shared.pdb
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/obj/Debug/net10.0/Order.API.MvcApplicationPartsAssemblyInfo.cs
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/obj/Debug/net10.0/Order.API.sourcelink.json
