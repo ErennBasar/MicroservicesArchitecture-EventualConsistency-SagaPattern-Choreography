@@ -1,6 +1,6 @@
 namespace Shared;
 
-public class RabbitMqSettings
+public static class RabbitMqSettings
 {
-    
+    public const string StockOrderCreatedEventQueue = "stock-order-created-event-queue";
 }

@@ -1,5 +1,6 @@
 using MassTransit;
 using Stock.API.Consumers;
+using Stock.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,8 @@ builder.Services.AddMassTransit(cfg =>
             e.ConfigureConsumer<OrderCreatedEventConsumer>(context));
     }) ;
 });
+
+builder.Services.AddSingleton<MongoDbService>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
