@@ -14,13 +14,26 @@ public class StockReservedEventConsumer : IConsumer<StockReservedEvent>
 
     public async Task Consume(ConsumeContext<StockReservedEvent> context)
     {
-        if (true)
+        var limit = 3000;
+        if (context.Message.TotalPrice < limit)
         {
-            //ödeme başarılı
+            PaymentCompletedEvent paymentCompletedEvent = new()
+            {
+                OrderId = context.Message.OrderId
+            };
+            await _publishEndpoint.Publish(paymentCompletedEvent);
+            Console.WriteLine("Ödeme başarılı");
         }
         else
         {
-            //ödeme başarısız
+            PaymentFailedEvent paymentFailedEvent = new()
+            {
+                OrderId = context.Message.OrderId,
+                Message = "Bakiye yetersiz",
+                OrderItems = context.Message.OrderItems
+            };
+            await _publishEndpoint.Publish(paymentFailedEvent);
+            Console.WriteLine("Ödeme başarısız");
         }
     }
 }
