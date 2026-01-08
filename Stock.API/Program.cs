@@ -1,4 +1,6 @@
 using MassTransit;
+using MongoDB.Driver;
+using Shared;
 using Stock.API.Consumers;
 using Stock.API.Services;
 
@@ -21,12 +23,23 @@ builder.Services.AddMassTransit(cfg =>
         if(rabbitMqUri != null)
             configurator.Host(new Uri(rabbitMqUri));
         
-        configurator.ReceiveEndpoint("stock-order-created-event-queue", e => 
+        configurator.ReceiveEndpoint(RabbitMqSettings.StockOrderCreatedEventQueue, e => 
             e.ConfigureConsumer<OrderCreatedEventConsumer>(context));
     }) ;
 });
 
 builder.Services.AddSingleton<MongoDbService>();
+
+//  Consumer'ın veya Controller'ın kullanacağı Collection'ı servisten alıp dağıt
+// (Scoped: Her istekte servisten koleksiyonu ister)
+builder.Services.AddScoped<IMongoCollection<Stock.API.Models.Stock>>(sp =>
+{
+    // Konteynerdan bizim servisi çağır
+    var mongoService = sp.GetRequiredService<MongoDbService>();
+    
+    // "Stocks" tablosunu getir
+    return mongoService.GetCollection<Stock.API.Models.Stock>();
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
