@@ -21,6 +21,7 @@ builder.Services.AddDbContext<OrderApiDbContext>(options =>
 builder.Services.AddMassTransit(cfg =>
 {
     cfg.AddConsumer<PaymentCompletedEventConsumer>();
+    cfg.AddConsumer<PaymentFailedEventConsumer>();
     
     cfg.UsingRabbitMq((context, configurator) =>
     {
@@ -31,6 +32,9 @@ builder.Services.AddMassTransit(cfg =>
         
         configurator.ReceiveEndpoint(RabbitMqSettings.OrderPaymentCompletedEventQueue,e =>
             e.ConfigureConsumer<PaymentCompletedEventConsumer>(context));
+        
+        configurator.ReceiveEndpoint(RabbitMqSettings.OrderPaymentFailedEventQueue, e => 
+            e.ConfigureConsumer<PaymentFailedEventConsumer>(context));
     });
 });
 
