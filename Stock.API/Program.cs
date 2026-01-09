@@ -53,5 +53,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+using (var scope = app.Services.CreateScope())
+{
+    var stockCollection = scope.ServiceProvider.GetRequiredService<IMongoCollection<Stock.API.Models.Stock>>();
+    
+    await MongoDbSeeder.Seed(stockCollection);
+}
 
 app.Run();
