@@ -1,12 +1,26 @@
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Payment.API.Consumers;
+using Payment.API.Models;
 using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<PaymentDbContext>(options =>
+{
+    options.UseNpgsql(builder.Configuration.GetConnectionString("PaymentDbPgSQL"));
+});
+
 builder.Services.AddMassTransit(configurator =>
 {
     configurator.AddConsumer<StockReservedEventConsumer>();
+    
+    configurator.AddEntityFrameworkOutbox<PaymentDbContext>(outbox =>
+    {
+        outbox.QueryDelay = TimeSpan.FromSeconds(5);
+        outbox.UsePostgres();
+        outbox.UseBusOutbox();
+    });
 
     configurator.UsingRabbitMq((context, cfg) =>
     {
