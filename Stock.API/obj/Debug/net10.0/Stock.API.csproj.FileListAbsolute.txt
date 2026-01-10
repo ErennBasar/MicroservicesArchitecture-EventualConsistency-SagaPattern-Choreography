@@ -44,3 +44,6 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.pdb
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/Stock.API.genruntimeconfig.cache
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/obj/Debug/net10.0/ref/Stock.API.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll

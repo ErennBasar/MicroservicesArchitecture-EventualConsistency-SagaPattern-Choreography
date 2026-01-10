@@ -394,6 +394,14 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.5.2, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[10.1.0, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[10.1.0, )"
             }
           },
           "imports": [

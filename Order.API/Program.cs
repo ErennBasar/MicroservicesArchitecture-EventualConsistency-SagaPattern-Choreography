@@ -4,13 +4,15 @@ using Order.API.Consumers;
 using Order.API.DTOs;
 using Order.API.Models;
 using Order.API.Models.Enums;
+using Order.API.Services.Abstractions;
+using Order.API.Services.Concretes;
 using Shared;
 using Shared.Events;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();  
 
 builder.Services.AddDbContext<OrderApiDbContext>(options =>
@@ -23,6 +25,13 @@ builder.Services.AddMassTransit(cfg =>
     cfg.AddConsumer<PaymentCompletedEventConsumer>();
     cfg.AddConsumer<PaymentFailedEventConsumer>();
     cfg.AddConsumer<StockNotReservedEventConsumer>();
+    
+    cfg.AddEntityFrameworkOutbox<OrderApiDbContext>(outbox =>
+    {
+        outbox.QueryDelay = TimeSpan.FromSeconds(5); // 5 saniyede bir kuyruğu kontrol et
+        outbox.UsePostgres(); 
+        outbox.UseBusOutbox(); // "Namus" ayarı: Event'leri direkt atma, önce Outbox'a koy.
+    });
     
     cfg.UsingRabbitMq((context, configurator) =>
     {
@@ -41,7 +50,7 @@ builder.Services.AddMassTransit(cfg =>
             e.ConfigureConsumer<StockNotReservedEventConsumer>(context));
     });
 });
-
+builder.Services.AddScoped<IOrderService, OrderService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -52,9 +61,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-
-
-
-
+app.MapControllers();
 app.Run();
