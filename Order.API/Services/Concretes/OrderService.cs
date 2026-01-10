@@ -42,9 +42,9 @@ public class OrderService : IOrderService
         }
 
         newOrder.TotalPrice = createOrderDto.OrderItems.Sum(oi => oi.Count * oi.Price);
-
+        
+        // 2. Siparişi Context'e Ekle (Ama henüz kaydetme)
         await _dbContext.Orders.AddAsync(newOrder);
-        await _dbContext.SaveChangesAsync();
 
         OrderCreatedEvent orderCreatedEvent = new()
         {
@@ -57,6 +57,11 @@ public class OrderService : IOrderService
                 Count = i.Count
             }).ToList()
         };
+        
+        // Publish işlemini SaveChanges'dan ÖNCE yapıyoruz.
+        // MassTransit burada RabbitMQ'ya gitmez, Context'teki 'OutboxMessage' tablosuna bir kayıt ekler.
         await _publishEndPoint.Publish(orderCreatedEvent);
+        //Tek seferde hem Siparişi hem de Mesajı veritabanına gömüyoruz.
+        await _dbContext.SaveChangesAsync();
     }
 }

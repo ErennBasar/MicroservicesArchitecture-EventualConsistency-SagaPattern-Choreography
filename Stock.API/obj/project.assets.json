@@ -44,6 +44,23 @@
           }
         }
       },
+      "MassTransit.MongoDb/8.5.7": {
+        "type": "package",
+        "dependencies": {
+          "MassTransit": "8.5.7",
+          "MongoDB.Driver": "3.5.1"
+        },
+        "compile": {
+          "lib/net10.0/MassTransit.MongoDbIntegration.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net10.0/MassTransit.MongoDbIntegration.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MassTransit.RabbitMQ/8.5.7": {
         "type": "package",
         "dependencies": {
@@ -307,6 +324,29 @@
         "mt-logo-small.png"
       ]
     },
+    "MassTransit.MongoDb/8.5.7": {
+      "sha512": "i+wpi8gTu4FV4cmpx2SPIuBN/c/bjbXtxvRJ04kAttxCroYLg2XTZj/IfCFePhuL2n83becKba92ysKZk/14fA==",
+      "type": "package",
+      "path": "masstransit.mongodb/8.5.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NuGet.README.md",
+        "lib/net10.0/MassTransit.MongoDbIntegration.dll",
+        "lib/net10.0/MassTransit.MongoDbIntegration.xml",
+        "lib/net472/MassTransit.MongoDbIntegration.dll",
+        "lib/net472/MassTransit.MongoDbIntegration.xml",
+        "lib/net8.0/MassTransit.MongoDbIntegration.dll",
+        "lib/net8.0/MassTransit.MongoDbIntegration.xml",
+        "lib/net9.0/MassTransit.MongoDbIntegration.dll",
+        "lib/net9.0/MassTransit.MongoDbIntegration.xml",
+        "lib/netstandard2.1/MassTransit.MongoDbIntegration.dll",
+        "lib/netstandard2.1/MassTransit.MongoDbIntegration.xml",
+        "masstransit.mongodb.8.5.7.nupkg.sha512",
+        "masstransit.mongodb.nuspec",
+        "mt-logo-small.png"
+      ]
+    },
     "MassTransit.RabbitMQ/8.5.7": {
       "sha512": "EgT/5pBsDiSqktP+eHE7ssLW6FTfQ0Cd6Kt2Ug/VwM+VSJx7Ua/8/Hyi+HPpt3/qt40qQI5j2/s9xDOrbAkU3w==",
       "type": "package",
@@ -546,6 +586,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "MassTransit.MongoDb >= 8.5.7",
       "MassTransit.RabbitMQ >= 8.5.7",
       "Microsoft.AspNetCore.OpenApi >= 10.0.1",
       "MongoDB.Driver >= 3.5.2",
@@ -602,6 +643,10 @@
       "net10.0": {
         "targetAlias": "net10.0",
         "dependencies": {
+          "MassTransit.MongoDb": {
+            "target": "Package",
+            "version": "[8.5.7, )"
+          },
           "MassTransit.RabbitMQ": {
             "target": "Package",
             "version": "[8.5.7, )"

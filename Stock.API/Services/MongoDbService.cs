@@ -4,14 +4,19 @@ namespace Stock.API.Services;
 
 public class MongoDbService
 {
-    private readonly IMongoDatabase _database;
+    public IMongoDatabase Database { get; }
+    public IMongoClient Client { get; }
 
     public MongoDbService(IConfiguration configuration)
     {
-        MongoClient client = new(configuration.GetConnectionString("MongoDb"));
-        _database = client.GetDatabase("StockApiDb");
+        var connectionString = configuration.GetConnectionString("MongoDb");
+        var mongoUrl = MongoUrl.Create(connectionString);
+        
+        //MongoClient client = new(configuration.GetConnectionString("MongoDb")); (Eski hâli)
+        Client = new MongoClient(mongoUrl);
+        Database = Client.GetDatabase("StockApiDb");
     }
 
-    public IMongoCollection<T> GetCollection<T>() => _database.GetCollection<T>(typeof(T)
+    public IMongoCollection<T> GetCollection<T>() => Database.GetCollection<T>(typeof(T)
         .Name.ToLowerInvariant());
 }

@@ -16,6 +16,15 @@ builder.Services.AddMassTransit(cfg =>
     cfg.AddConsumer<OrderCreatedEventConsumer>();
     cfg.AddConsumer<PaymentFailedEventConsumer>();
     
+    cfg.AddMongoDbOutbox(outbox =>
+    {
+        outbox.DisableInboxCleanupService(); // Test için cleanup'ı kapattık (Veriyi görelim diye)
+        outbox.UseBusOutbox(); // Inbox pattern'i aktif eder
+        
+        outbox.ClientFactory(provider => provider.GetRequiredService<MongoDbService>().Client);
+        outbox.DatabaseFactory(provider => provider.GetRequiredService<MongoDbService>().Database);
+    });
+    
      cfg.UsingRabbitMq((context, configurator) =>
     {
         var rabbitMqUri = builder.Configuration.GetConnectionString("RabbitMq");
