@@ -25,7 +25,7 @@ namespace Order.API.Controllers
         {
             CreateOrderCommandResponse response = await _mediator.Send(request);
 
-            if (response.IsSucces)
+            if (response.IsSuccess)
                 return Ok(response);
             
             return BadRequest(response.Message);

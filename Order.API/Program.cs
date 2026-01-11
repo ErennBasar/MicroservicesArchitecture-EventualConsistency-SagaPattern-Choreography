@@ -61,6 +61,7 @@ builder.Services.AddMassTransit(cfg =>
 
 builder.Services.AddSingleton<EventStoreService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 var app = builder.Build();
 

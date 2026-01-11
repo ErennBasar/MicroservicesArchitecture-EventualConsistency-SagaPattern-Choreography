@@ -3,6 +3,7 @@ using MediatR;
 using Order.API.Models;
 using Order.API.Models.Entities;
 using Order.API.Models.Enums;
+using Order.API.Services;
 using Shared.Events;
 using Shared.Messages;
 
@@ -10,62 +11,55 @@ namespace Order.API.Features.Orders.Commands.CreateOrder;
 
 public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandRequest, CreateOrderCommandResponse>
 {
-    private readonly OrderApiDbContext _dbContext;
-    private readonly IPublishEndpoint _publishEndpoint;
+    private readonly EventStoreService _eventStoreService;
+    
+    // private readonly OrderApiDbContext _dbContext;
+    // private readonly IPublishEndpoint _publishEndpoint;
 
-    public CreateOrderCommandHandler(OrderApiDbContext dbContext, IPublishEndpoint publishEndpoint)
+    public CreateOrderCommandHandler(OrderApiDbContext dbContext, IPublishEndpoint publishEndpoint, EventStoreService eventStoreService)
     {
-        _dbContext = dbContext;
-        _publishEndpoint = publishEndpoint;
+        _eventStoreService = eventStoreService;
+        
+        // _dbContext = dbContext;
+        // _publishEndpoint = publishEndpoint;
     }
     
     public async Task<CreateOrderCommandResponse> Handle(CreateOrderCommandRequest request, CancellationToken cancellationToken)
     {
-        var newOrder = new Models.Entities.Order()
+        // 1. Önce gerekli ID'leri oluşturalım
+        var orderId = Guid.NewGuid();
+
+        // 2. Olayı (Event) Hazırla
+        // Bu olay artık bizim veritabanı satırımız gibi davranacak.
+        var orderCreatedEvent = new OrderCreatedEvent
         {
-            OrderId = Guid.NewGuid(),
+            OrderId = orderId,
             CustomerId = request.CustomerId,
-            OrderDate = DateTime.UtcNow,
-            OrderStatus = OrderStatus.Suspend,
-            OrderItems = new List<OrderItem>()
-        };
-
-        foreach (var item in request.OrderItems)
-        {
-            newOrder.OrderItems.Add(new OrderItem
+            TotalPrice = request.OrderItems.Sum(x => x.Count * x.Price), // Fiyatı hesapla
+            OrderItems = request.OrderItems.Select(oi => new OrderItemMessage
             {
-                Count = item.Count,
-                Id = Guid.NewGuid(),
-                ProductId = item.ProductId,
-                Price = item.Price
-            });
-        }
-
-        newOrder.TotalPrice = newOrder.OrderItems.Sum(s => s.Count * s.Price);
-
-        await _dbContext.Orders.AddAsync(newOrder);
-
-        var orderCreatedEvent = new OrderCreatedEvent()
-        {
-            CustomerId = newOrder.CustomerId,
-            OrderId = newOrder.OrderId,
-            TotalPrice = newOrder.TotalPrice,
-            OrderItems = newOrder.OrderItems.Select(s => new OrderItemMessage()
-            {
-                ProductId = s.ProductId,
-                Count = s.Count,
+                ProductId = oi.ProductId,
+                Count = oi.Count,
+                Price = oi.Price
             }).ToList()
         };
 
-        await _publishEndpoint.Publish(orderCreatedEvent);
+        // 3. Event Store'a Gönder! 🚀
+        // Stream Adı Önemli: Her siparişin kendi akışı (stream) olur.
+        // Örn: "Order-550e8400-e29b-..."
+        var streamName = $"Order-{orderId}";
 
-        await _dbContext.SaveChangesAsync();
+        await _eventStoreService.AppendToStreamAsync(
+            streamName: streamName,
+            eventDataList: new[] { orderCreatedEvent }
+        );
 
-        return new CreateOrderCommandResponse()
+        // 4. Cevap Dön
+        return new CreateOrderCommandResponse
         {
-            IsSucces = true,
-            OrderId = newOrder.OrderId,
-            Message = "Sipariş başarıyla alındı ve işleme kondu"
+            IsSuccess = true,
+            OrderId = orderId,
+            Message = "Sipariş Event Store'a başarıyla işlendi!"
         };
     }
 }

@@ -8,8 +8,10 @@
     ".NETCoreApp,Version=v10.0": {
       "Order.API/1.0.0": {
         "dependencies": {
+          "EventStore.Client.Grpc.Streams": "23.3.9",
           "MassTransit.EntityFrameworkCore": "8.5.7",
           "MassTransit.RabbitMQ": "8.5.7",
+          "MediatR": "14.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "10.0.1",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "10.0.0",
           "Shared": "1.0.0",
@@ -18,6 +20,69 @@
         },
         "runtime": {
           "Order.API.dll": {}
+        }
+      },
+      "EventStore.Client.Grpc/23.3.9": {
+        "dependencies": {
+          "Google.Protobuf": "3.25.1",
+          "Grpc.Net.Client": "2.60.0",
+          "JetBrains.Annotations": "2023.3.0",
+          "System.Linq.Async": "6.0.1"
+        },
+        "runtime": {
+          "lib/net8.0/EventStore.Client.dll": {
+            "assemblyVersion": "23.3.9.0",
+            "fileVersion": "23.3.9.0"
+          }
+        }
+      },
+      "EventStore.Client.Grpc.Streams/23.3.9": {
+        "dependencies": {
+          "EventStore.Client.Grpc": "23.3.9"
+        },
+        "runtime": {
+          "lib/net8.0/EventStore.Client.Streams.dll": {
+            "assemblyVersion": "23.3.9.0",
+            "fileVersion": "23.3.9.0"
+          }
+        }
+      },
+      "Google.Protobuf/3.25.1": {
+        "runtime": {
+          "lib/net5.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.25.1.0",
+            "fileVersion": "3.25.1.0"
+          }
+        }
+      },
+      "Grpc.Core.Api/2.60.0": {
+        "runtime": {
+          "lib/netstandard2.1/Grpc.Core.Api.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.60.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Client/2.60.0": {
+        "dependencies": {
+          "Grpc.Net.Common": "2.60.0"
+        },
+        "runtime": {
+          "lib/net8.0/Grpc.Net.Client.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.60.0.0"
+          }
+        }
+      },
+      "Grpc.Net.Common/2.60.0": {
+        "dependencies": {
+          "Grpc.Core.Api": "2.60.0"
+        },
+        "runtime": {
+          "lib/net8.0/Grpc.Net.Common.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.60.0.0"
+          }
         }
       },
       "Humanizer/2.14.1": {
@@ -560,6 +625,14 @@
           }
         }
       },
+      "JetBrains.Annotations/2023.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/JetBrains.Annotations.dll": {
+            "assemblyVersion": "4242.42.42.42",
+            "fileVersion": "2023.3.0.0"
+          }
+        }
+      },
       "MassTransit/8.5.7": {
         "dependencies": {
           "MassTransit.Abstractions": "8.5.7"
@@ -603,11 +676,39 @@
           }
         }
       },
+      "MediatR/14.0.0": {
+        "dependencies": {
+          "MediatR.Contracts": "2.0.1",
+          "Microsoft.IdentityModel.JsonWebTokens": "8.14.0"
+        },
+        "runtime": {
+          "lib/net10.0/MediatR.dll": {
+            "assemblyVersion": "14.0.0.0",
+            "fileVersion": "14.0.0.0"
+          }
+        }
+      },
+      "MediatR.Contracts/2.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/MediatR.Contracts.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Razor.Language/6.0.24": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Razor.Language.dll": {
             "assemblyVersion": "6.0.24.0",
             "fileVersion": "6.0.2423.51812"
+          }
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+        "runtime": {
+          "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.21.52210"
           }
         }
       },
@@ -1245,6 +1346,47 @@
           }
         }
       },
+      "Microsoft.IdentityModel.Abstractions/8.14.0": {
+        "runtime": {
+          "lib/net9.0/Microsoft.IdentityModel.Abstractions.dll": {
+            "assemblyVersion": "8.14.0.0",
+            "fileVersion": "8.14.0.60815"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/8.14.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "8.14.0"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "8.14.0.0",
+            "fileVersion": "8.14.0.60815"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Logging/8.14.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "8.14.0"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.IdentityModel.Logging.dll": {
+            "assemblyVersion": "8.14.0.0",
+            "fileVersion": "8.14.0.60815"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/8.14.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "8.14.0"
+        },
+        "runtime": {
+          "lib/net9.0/Microsoft.IdentityModel.Tokens.dll": {
+            "assemblyVersion": "8.14.0.0",
+            "fileVersion": "8.14.0.60815"
+          }
+        }
+      },
       "Microsoft.NET.StringTools/17.14.28": {
         "runtime": {
           "lib/net9.0/Microsoft.NET.StringTools.dll": {
@@ -1735,6 +1877,17 @@
           }
         }
       },
+      "System.Linq.Async/6.0.1": {
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/System.Linq.Async.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.1.35981"
+          }
+        }
+      },
       "System.Reflection.MetadataLoadContext/8.0.0": {
         "runtime": {
           "lib/net8.0/System.Reflection.MetadataLoadContext.dll": {
@@ -1804,6 +1957,48 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "EventStore.Client.Grpc/23.3.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-vsrxZLqHhO1RqCO1gl+wbJP2Mkbbst2caiz3PtvkHbC26vAdbChOw4538eTSNrcq75yQsP6qOOtNj4nCfLYe1A==",
+      "path": "eventstore.client.grpc/23.3.9",
+      "hashPath": "eventstore.client.grpc.23.3.9.nupkg.sha512"
+    },
+    "EventStore.Client.Grpc.Streams/23.3.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jsHDMTKlboIawzIGIr5gbcntx630R8A4Qzed5NQawOE1FHTnqySBflpKp5U5yqlapIgVzY7xzTyMNV0k1XSoxw==",
+      "path": "eventstore.client.grpc.streams/23.3.9",
+      "hashPath": "eventstore.client.grpc.streams.23.3.9.nupkg.sha512"
+    },
+    "Google.Protobuf/3.25.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Sw9bq4hOD+AaS3RrnmP5IT25cyZ/T1qpM0e8+G+23Nojhv7+ScJFPEAQo1m4EFQWhXoI4FRZDrK+wjHCPw9yxg==",
+      "path": "google.protobuf/3.25.1",
+      "hashPath": "google.protobuf.3.25.1.nupkg.sha512"
+    },
+    "Grpc.Core.Api/2.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VWah+8dGJhhsay5BQ/Ljq6GYDWj0lSjdzqyoBgUQhXTbBqhs+q5dRFROKxI1xxzlL4pfUO45cf/y+KnHVFG9ew==",
+      "path": "grpc.core.api/2.60.0",
+      "hashPath": "grpc.core.api.2.60.0.nupkg.sha512"
+    },
+    "Grpc.Net.Client/2.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-J9U96gjZHOcqSgAThg9vZZhLsbTD005bUggPtMP/RVQnGc3+tQJTpkRUCJtJWq9cykNydsRVoyU38TjPP/VJ4A==",
+      "path": "grpc.net.client/2.60.0",
+      "hashPath": "grpc.net.client.2.60.0.nupkg.sha512"
+    },
+    "Grpc.Net.Common/2.60.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Y/917aplgD1RA0q1cd9WpnMGyl9Luu3WZl6ZMpPvNQwg2TNw/3uXUDSriDBybeCtxnKUCtxUcWO3WsVkhM1DcA==",
+      "path": "grpc.net.common/2.60.0",
+      "hashPath": "grpc.net.common.2.60.0.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
@@ -2155,6 +2350,13 @@
       "path": "humanizer.core.zh-hant/2.14.1",
       "hashPath": "humanizer.core.zh-hant.2.14.1.nupkg.sha512"
     },
+    "JetBrains.Annotations/2023.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PHfnvdBUdGaTVG9bR/GEfxgTwWM0Z97Y6X3710wiljELBISipSfF5okn/vz+C2gfO+ihoEyVPjaJwn8ZalVukA==",
+      "path": "jetbrains.annotations/2023.3.0",
+      "hashPath": "jetbrains.annotations.2023.3.0.nupkg.sha512"
+    },
     "MassTransit/8.5.7": {
       "type": "package",
       "serviceable": true,
@@ -2183,12 +2385,33 @@
       "path": "masstransit.rabbitmq/8.5.7",
       "hashPath": "masstransit.rabbitmq.8.5.7.nupkg.sha512"
     },
+    "MediatR/14.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-r5fwUO6NBvOFKaiMRx/gRrD1MEHHOio5yEdzSLs2OMeD2e9ZKnZaBQM6A6vVBEWJF4VY41vplXmDMOY1YvpqNA==",
+      "path": "mediatr/14.0.0",
+      "hashPath": "mediatr.14.0.0.nupkg.sha512"
+    },
+    "MediatR.Contracts/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FYv95bNT4UwcNA+G/J1oX5OpRiSUxteXaUt2BJbRSdRNiIUNbggJF69wy6mnk2wYToaanpdXZdCwVylt96MpwQ==",
+      "path": "mediatr.contracts/2.0.1",
+      "hashPath": "mediatr.contracts.2.0.1.nupkg.sha512"
+    },
     "Microsoft.AspNetCore.Razor.Language/6.0.24": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-kBL6ljTREp/3fk8EKN27mrPy3WTqWUjiqCkKFlCKHUKRO3/9rAasKizX3vPWy4ZTcNsIPmVWUHwjDFmiW4MyNA==",
       "path": "microsoft.aspnetcore.razor.language/6.0.24",
       "hashPath": "microsoft.aspnetcore.razor.language.6.0.24.nupkg.sha512"
+    },
+    "Microsoft.Bcl.AsyncInterfaces/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg==",
+      "path": "microsoft.bcl.asyncinterfaces/6.0.0",
+      "hashPath": "microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512"
     },
     "Microsoft.Build/17.11.48": {
       "type": "package",
@@ -2343,6 +2566,34 @@
       "sha512": "sha512-IiWPd4j8JLNjSkyXl5hvJwX2ZENDVQVPDHYgZmYdw8+YkY2xp9iQt0vjdnAQZLpo/ipeW1xgOqfSBEnivKWPYQ==",
       "path": "microsoft.extensions.dependencymodel/10.0.1",
       "hashPath": "microsoft.extensions.dependencymodel.10.0.1.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Abstractions/8.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iwbCpSjD3ehfTwBhtSNEtKPK0ICun6ov7Ibx6ISNA9bfwIyzI2Siwyi9eJFCJBwxowK9xcA1mj+jBWiigeqgcQ==",
+      "path": "microsoft.identitymodel.abstractions/8.14.0",
+      "hashPath": "microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/8.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4jOpiA4THdtpLyMdAb24dtj7+6GmvhOhxf5XHLYWmPKF8ApEnApal1UnJsKO4HxUWRXDA6C4WQVfYyqsRhpNpQ==",
+      "path": "microsoft.identitymodel.jsonwebtokens/8.14.0",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Logging/8.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eqqnemdW38CKZEHS6diA50BV94QICozDZEvSrsvN3SJXUFwVB9gy+/oz76gldP7nZliA16IglXjXTCTdmU/Ejg==",
+      "path": "microsoft.identitymodel.logging/8.14.0",
+      "hashPath": "microsoft.identitymodel.logging.8.14.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Tokens/8.14.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lKIZiBiGd36k02TCdMHp1KlNWisyIvQxcYJvIkz7P4gSQ9zi8dgh6S5Grj8NNG7HWYIPfQymGyoZ6JB5d1Lo1g==",
+      "path": "microsoft.identitymodel.tokens/8.14.0",
+      "hashPath": "microsoft.identitymodel.tokens.8.14.0.nupkg.sha512"
     },
     "Microsoft.NET.StringTools/17.14.28": {
       "type": "package",
@@ -2588,6 +2839,13 @@
       "sha512": "sha512-F/6tNE+ckmdFeSQAyQo26bQOqfPFKEfZcuqnp4kBE6/7jP26diP+QTHCJJ6vpEfaY6bLy+hBLiIQUSxSmNwLkA==",
       "path": "system.formats.nrbf/9.0.0",
       "hashPath": "system.formats.nrbf.9.0.0.nupkg.sha512"
+    },
+    "System.Linq.Async/6.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0YhHcaroWpQ9UCot3Pizah7ryAzQhNvobLMSxeDIGmnXfkQn8u5owvpOH0K6EVB+z9L7u6Cc4W17Br/+jyttEQ==",
+      "path": "system.linq.async/6.0.1",
+      "hashPath": "system.linq.async.6.0.1.nupkg.sha512"
     },
     "System.Reflection.MetadataLoadContext/8.0.0": {
       "type": "package",
