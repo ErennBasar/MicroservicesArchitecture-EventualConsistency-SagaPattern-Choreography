@@ -1,9 +1,11 @@
+using EventStore.Client;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Order.API.Consumers;
 using Order.API.DTOs;
 using Order.API.Models;
 using Order.API.Models.Enums;
+using Order.API.Services;
 using Order.API.Services.Abstractions;
 using Order.API.Services.Concretes;
 using Shared;
@@ -18,6 +20,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OrderApiDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("OrderDbPgSQL"));
+});
+
+builder.Services.AddSingleton(s =>
+{
+    var settings = EventStoreClientSettings.Create("esdb://localhost:2113?tls=false");
+    return new EventStoreClient(settings);
 });
 
 builder.Services.AddMassTransit(cfg =>
@@ -50,7 +58,10 @@ builder.Services.AddMassTransit(cfg =>
             e.ConfigureConsumer<StockNotReservedEventConsumer>(context));
     });
 });
+
+builder.Services.AddSingleton<EventStoreService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
