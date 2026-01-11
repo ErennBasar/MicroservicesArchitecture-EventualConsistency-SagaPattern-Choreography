@@ -12,8 +12,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="EventStore.Client.Grpc.Streams" Version="23.3.9" />
       <PackageReference Include="MassTransit.EntityFrameworkCore" Version="8.5.7" />
       <PackageReference Include="MassTransit.RabbitMQ" Version="8.5.7" />
+      <PackageReference Include="MediatR" Version="14.0.0" />
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="10.0.1" />
       <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
       <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="10.1.0" />
