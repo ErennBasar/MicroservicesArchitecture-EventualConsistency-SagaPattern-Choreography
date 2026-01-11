@@ -44,7 +44,8 @@ public class EventStoreService
         await _client.SubscribeToStreamAsync(
             streamName: streamName,
             start: FromStream.Start, 
-            eventAppeared: eventAppeared
+            eventAppeared: eventAppeared,
+            resolveLinkTos: true
         );
     }
 }

@@ -1,6 +1,7 @@
 using EventStore.Client;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Order.API.BackgroundServices;
 using Order.API.Consumers;
 using Order.API.DTOs;
 using Order.API.Models;
@@ -61,6 +62,7 @@ builder.Services.AddMassTransit(cfg =>
 
 builder.Services.AddSingleton<EventStoreService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddHostedService<OrderBackgroundService>();
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
 var app = builder.Build();
