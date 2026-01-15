@@ -13,22 +13,34 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
     private readonly ISendEndpointProvider _sendEndpointProvider;
     private readonly IPublishEndpoint _publishEndpoint;
     private readonly MongoDbService _mongoDbService;
+    private readonly ILogger<OrderCreatedEventConsumer> _logger;
 
     public OrderCreatedEventConsumer(
         IMongoCollection<Models.Stock> stockCollection, 
         ISendEndpointProvider sendEndpointProvider, 
         IPublishEndpoint publishEndpoint, 
-        MongoDbService mongoDbService)
+        MongoDbService mongoDbService, 
+        ILogger<OrderCreatedEventConsumer> logger
+        )
     {
         _stockCollection = stockCollection;
         _sendEndpointProvider = sendEndpointProvider;
         _publishEndpoint = publishEndpoint;
         _mongoDbService = mongoDbService;
+        _logger = logger;
     }
 
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
     {
-        var session = context.GetPayload<IClientSessionHandle>();
+        var correlationId = context.CorrelationId;
+        
+        _logger.LogInformation("Message received. CorrelationID: {CorrelationId}, OrderId: {OrderId}", 
+            correlationId, context.Message.OrderId);
+        
+        using var session = await _mongoDbService.Client.StartSessionAsync();
+        session.StartTransaction();
+        
+        //var session = context.GetPayload<IClientSessionHandle>();
 
         List<bool> stockResult = new();
 
@@ -59,6 +71,8 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
                 await _stockCollection.FindOneAndReplaceAsync(session, filter, stock);
             }
 
+            await session.CommitTransactionAsync();
+            
             // Stok rezerve edildi eventi
             StockReservedEvent stockReservedEvent = new()
             {
@@ -69,9 +83,13 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
             };
 
             await _publishEndpoint.Publish(stockReservedEvent);
+            
+            _logger.LogInformation("Stock reserved. CorrelationId: {CorrelationId}", correlationId);
         }
         else
         {
+            await session.AbortTransactionAsync();
+            
             // Stok yetersiz eventi
             StockNotReservedEvent stockNotReservedEvent = new()
             {
@@ -81,7 +99,7 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
             };
 
             await _publishEndpoint.Publish(stockNotReservedEvent);
-            await Console.Out.WriteLineAsync($"Stock not reserved for Order Id: {context.Message.OrderId}");
+            _logger.LogWarning("Stock NOT reserved. CorrelationId: {CorrelationId}", correlationId);
         }
     }
 }

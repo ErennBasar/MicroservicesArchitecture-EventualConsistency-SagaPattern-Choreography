@@ -7,7 +7,7 @@ public class OrderCreatedEventConsumerDefinition : ConsumerDefinition<OrderCreat
 {
     public OrderCreatedEventConsumerDefinition()
     {
-        // Kuyruk ismini burada belirtiyoruz (İstersen değiştirebilirsin)
+        // Kuyruk ismini burada belirtiyoruz
         EndpointName = RabbitMqSettings.StockOrderCreatedEventQueue;
         
         // Bu consumer için aynı anda kaç mesajın işleneceğini belirler (Opsiyonel)
@@ -25,7 +25,7 @@ public class OrderCreatedEventConsumerDefinition : ConsumerDefinition<OrderCreat
         // Outbox middleware'ini bu consumer'a zorla enjekte ediyoruz.
         endpointConfigurator.UseMongoDbOutbox(context);
         
-        // *** KRİTİK: MongoDB Session/Transaction kullanımı için ***
+        // *** MongoDB Session/Transaction kullanımı için ***
         //endpointConfigurator.UseInMemoryOutbox(context);
     }
 }

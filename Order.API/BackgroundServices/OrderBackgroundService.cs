@@ -14,7 +14,10 @@ public class OrderBackgroundService : BackgroundService
     private readonly EventStoreService _eventStoreService;
     private readonly IServiceProvider _serviceProvider; // DbContext ve IPublishEndpoint için Scope lazım
 
-    public OrderBackgroundService(EventStoreService eventStoreService, IServiceProvider serviceProvider)
+    public OrderBackgroundService(
+        EventStoreService eventStoreService, 
+        IServiceProvider serviceProvider
+        )
     {
         _eventStoreService = eventStoreService;
         _serviceProvider = serviceProvider;
@@ -37,6 +40,30 @@ public class OrderBackgroundService : BackgroundService
                 
                 // Olayın verisini JSON stringine çevir
                 var eventDataJson = Encoding.UTF8.GetString(resolvedEvent.Event.Data.Span);
+                
+                Guid correlationId = Guid.NewGuid(); // Varsayılan (Bulamazsa yeni üretir)
+
+                try
+                {
+                    // Metadata boş değilse işle
+                    if (!resolvedEvent.Event.Metadata.IsEmpty)
+                    {
+                        var metadataJson = Encoding.UTF8.GetString(resolvedEvent.Event.Metadata.Span);
+                        var metadataNode = JsonSerializer.Deserialize<JsonElement>(metadataJson);
+                        
+                        // "CorrelationId" anahtarını ara (Handler'da bu isimle kaydettik)
+                        if (metadataNode.TryGetProperty("CorrelationId", out var cidProp) && 
+                            Guid.TryParse(cidProp.GetString(), out var parsedId))
+                        {
+                            correlationId = parsedId;
+                            Console.WriteLine($"🔗 ZİNCİR YAKALANDI: CorrelationId {correlationId} olarak okundu.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"⚠️ Metadata okunamadı, yeni ID üretilecek. Hata: {ex.Message}");
+                }
 
                 // --- KRİTİK NOKTA: DbContext Scope Yönetimi ---
                 // BackgroundService Singleton'dır (Uygulama boyunca 1 tane).
@@ -84,10 +111,13 @@ public class OrderBackgroundService : BackgroundService
                                 // 3. RabbitMQ'ya Mesajı FIRLAT (Stock.API duysun diye)
                                 // NOT: Buradaki event, Outbox ile değil direkt gidiyor. 
                                 // Çünkü burası zaten Event Store'dan besleniyor, burası çökerse Event Store kaldığı yerden devam eder.
-                                await publishEndpoint.Publish(orderEvent);
+                                await publishEndpoint.Publish(orderEvent, context =>
+                                {
+                                    context.CorrelationId = correlationId;
+                                });
                                 
                                 await dbContext.SaveChangesAsync();
-                                Console.WriteLine($"📨 RabbitMQ'ya Gönderildi: Sipariş {newOrder.OrderId}");
+                                Console.WriteLine($"📨 RabbitMQ'ya Gönderildi (CID: {correlationId}): Sipariş {newOrder.OrderId}");
                             }
                             Console.WriteLine($"💾 VERİTABANINA YAZILDI: Sipariş {orderEvent.OrderId}");
                         }

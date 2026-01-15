@@ -13,8 +13,17 @@ public class EventStoreService
         _client = client;
     }
     // Olayı Veritabanına Ekleme (Append)
-    public async Task AppendToStreamAsync(string streamName, IEnumerable<object> eventDataList)
+    public async Task AppendToStreamAsync(
+        string streamName, 
+        IEnumerable<object> eventDataList, 
+        object? metadata = null
+        )
     {
+        // Eğer metadata gelmediyse boş bir nesne oluştur, geldiyse JSON yap
+        var metadataBytes = metadata != null 
+            ? Encoding.UTF8.GetBytes(JsonSerializer.Serialize(metadata)) 
+            : Array.Empty<byte>();
+        
         var eventData = eventDataList.Select(s => new EventData(
             eventId: Uuid.NewUuid(),
             type:s.GetType().Name, // Class ismini Event Tipi olarak kullanıyoruz (örn: OrderCreatedEvent)

@@ -28,6 +28,7 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandReque
     {
         // 1. Önce gerekli ID'leri oluşturalım
         var orderId = Guid.NewGuid();
+        var correlationId = Guid.NewGuid();
 
         // 2. Olayı (Event) Hazırla
         // Bu olay artık bizim veritabanı satırımız gibi davranacak.
@@ -43,6 +44,13 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandReque
                 Price = oi.Price
             }).ToList()
         };
+        
+        var eventMetadata = new
+        {
+            CorrelationId = correlationId,
+            Timestamp = DateTime.UtcNow,
+            UserId = request.CustomerId // Opsiyonel: İşlemi yapan kim?
+        };
 
         // 3. Event Store'a Gönder! 🚀
         // Stream Adı Önemli: Her siparişin kendi akışı (stream) olur.
@@ -51,7 +59,8 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandReque
 
         await _eventStoreService.AppendToStreamAsync(
             streamName: streamName,
-            eventDataList: new[] { orderCreatedEvent }
+            eventDataList: new[] { orderCreatedEvent },
+            metadata: eventMetadata
         );
 
         // 4. Cevap Dön
