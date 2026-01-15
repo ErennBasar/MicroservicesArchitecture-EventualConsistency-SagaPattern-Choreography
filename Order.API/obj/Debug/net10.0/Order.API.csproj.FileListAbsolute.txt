@@ -268,3 +268,6 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/System.Linq.Async.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/HealthChecks.NpgSql.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/HealthChecks.UI.Client.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/HealthChecks.UI.Core.dll

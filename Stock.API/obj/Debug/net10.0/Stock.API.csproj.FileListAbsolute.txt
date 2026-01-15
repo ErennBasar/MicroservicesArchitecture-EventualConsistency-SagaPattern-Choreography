@@ -48,3 +48,7 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/MassTransit.MongoDbIntegration.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.MongoDb.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.Rabbitmq.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.UI.Client.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.UI.Core.dll

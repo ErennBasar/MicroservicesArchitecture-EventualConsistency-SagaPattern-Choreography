@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "dx5HG6MUINI=",
+  "dgSpecHash": "XzUfoVIHjNw=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/Stock.API.csproj",
   "expectedPackageFiles": [
+    "/Users/erenbasar/.nuget/packages/aspnetcore.healthchecks.mongodb/9.0.0/aspnetcore.healthchecks.mongodb.9.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/aspnetcore.healthchecks.rabbitmq/9.0.0/aspnetcore.healthchecks.rabbitmq.9.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/aspnetcore.healthchecks.ui.client/9.0.0/aspnetcore.healthchecks.ui.client.9.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/aspnetcore.healthchecks.ui.core/9.0.0/aspnetcore.healthchecks.ui.core.9.0.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/dnsclient/1.6.1/dnsclient.1.6.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/masstransit/8.5.7/masstransit.8.5.7.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/masstransit.abstractions/8.5.7/masstransit.abstractions.8.5.7.nupkg.sha512",

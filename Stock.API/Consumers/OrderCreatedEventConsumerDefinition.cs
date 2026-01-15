@@ -1,6 +1,31 @@
+using MassTransit;
+using Shared;
+
 namespace Stock.API.Consumers;
 
-public class OrderCreatedEventConsumerDefinition
+public class OrderCreatedEventConsumerDefinition : ConsumerDefinition<OrderCreatedEventConsumer>
 {
-    
+    public OrderCreatedEventConsumerDefinition()
+    {
+        // Kuyruk ismini burada belirtiyoruz (İstersen değiştirebilirsin)
+        EndpointName = RabbitMqSettings.StockOrderCreatedEventQueue;
+        
+        // Bu consumer için aynı anda kaç mesajın işleneceğini belirler (Opsiyonel)
+        //ConcurrentMessageLimit = 4; 
+    }
+
+    protected override void ConfigureConsumer(
+        IReceiveEndpointConfigurator endpointConfigurator, 
+        IConsumerConfigurator<OrderCreatedEventConsumer> consumerConfigurator, 
+        IRegistrationContext context)
+    {
+        // MongoDB Outbox için transaction filtresi ekle
+        endpointConfigurator.UseMessageRetry(r => r.Intervals(100, 500, 1000, 2000));
+        
+        // Outbox middleware'ini bu consumer'a zorla enjekte ediyoruz.
+        endpointConfigurator.UseMongoDbOutbox(context);
+        
+        // *** KRİTİK: MongoDB Session/Transaction kullanımı için ***
+        //endpointConfigurator.UseInMemoryOutbox(context);
+    }
 }
