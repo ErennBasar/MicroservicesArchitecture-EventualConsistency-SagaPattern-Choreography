@@ -28,7 +28,7 @@ builder.Services.AddScoped<IMongoCollection<Stock.API.Models.Stock>>(sp =>
 builder.Services.AddMassTransit(cfg =>
 {
     //cfg.AddConsumer<OrderCreatedEventConsumer>();
-    cfg.AddConsumer<PaymentFailedEventConsumer>();
+    cfg.AddConsumer<PaymentFailedEventConsumer>(typeof(PaymentFailedEventConsumerDefinition));
     cfg.AddConsumer<OrderCreatedEventConsumer>(typeof(OrderCreatedEventConsumerDefinition));
     
     cfg.AddMongoDbOutbox(outbox =>
