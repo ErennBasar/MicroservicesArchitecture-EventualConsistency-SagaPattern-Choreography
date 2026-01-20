@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.API", "Payment.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStatus", "ServiceStatus\ServiceStatus.csproj", "{08A9F857-FC78-40A3-8C34-F7277E90C867}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Gateway", "API.Gateway\API.Gateway.csproj", "{FA8F04EE-19C0-4D66-80E2-E643138818A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Gateway.YARP", "API.Gateway.YARP\API.Gateway.YARP.csproj", "{8DD3B56A-D646-4955-9EE1-B2566941355A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,5 +45,13 @@ Global
 		{08A9F857-FC78-40A3-8C34-F7277E90C867}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08A9F857-FC78-40A3-8C34-F7277E90C867}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08A9F857-FC78-40A3-8C34-F7277E90C867}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA8F04EE-19C0-4D66-80E2-E643138818A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA8F04EE-19C0-4D66-80E2-E643138818A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA8F04EE-19C0-4D66-80E2-E643138818A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA8F04EE-19C0-4D66-80E2-E643138818A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
