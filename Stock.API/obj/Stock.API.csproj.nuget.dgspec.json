@@ -411,6 +411,10 @@
               "target": "Package",
               "version": "[3.5.2, )"
             },
+            "NLog.Web.AspNetCore": {
+              "target": "Package",
+              "version": "[6.1.0, )"
+            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[10.1.0, )"

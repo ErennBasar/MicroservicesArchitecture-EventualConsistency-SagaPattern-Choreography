@@ -1,6 +1,8 @@
 using EventStore.Client;
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using NLog.Web;
+using NLog;
 using Order.API.BackgroundServices;
 using Order.API.Consumers;
 using Order.API.DTOs;
@@ -13,6 +15,8 @@ using Shared;
 using Shared.Events;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseNLog();
 
 // Add services to the container.
 builder.Services.AddControllers();

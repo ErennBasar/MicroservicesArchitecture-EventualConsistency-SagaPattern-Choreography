@@ -1,10 +1,13 @@
 using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 using Payment.API.Consumers;
 using Payment.API.Models;
 using Shared;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseNLog();
 
 builder.Services.AddDbContext<PaymentDbContext>(options =>
 {

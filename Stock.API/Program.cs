@@ -6,9 +6,12 @@ using Stock.API.Services;
 using HealthChecks.UI.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using NLog.Web;
 using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseNLog();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

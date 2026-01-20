@@ -52,3 +52,7 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.Rabbitmq.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.UI.Client.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/HealthChecks.UI.Core.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/nlog.config
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/NLog.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/NLog.Extensions.Logging.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/bin/Debug/net10.0/NLog.Web.AspNetCore.dll
