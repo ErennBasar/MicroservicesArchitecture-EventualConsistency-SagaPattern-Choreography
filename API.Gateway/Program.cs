@@ -1,7 +1,11 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Eureka;
+using Steeltoe.Discovery.Client;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthScheme", options =>
 {
@@ -13,9 +17,10 @@ builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthScheme", options =
 // 1. Ocelot.json dosyasını konfigürasyona ekle
 builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
 
-// 2. Ocelot Servislerini Ekle
-builder.Services.AddOcelot(builder.Configuration);
+builder.Services.AddDiscoveryClient(builder.Configuration);
 
+// 2. Ocelot Servislerini Ekle
+builder.Services.AddOcelot().AddEureka();
 
 
 var app = builder.Build();
