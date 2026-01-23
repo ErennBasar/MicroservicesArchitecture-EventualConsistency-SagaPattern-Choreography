@@ -10,7 +10,7 @@ namespace Stock.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            await Task.Delay(10000); // 10 saniye gecikme
+            // await Task.Delay(10000); // 10 saniye gecikme
 
             return Ok("Stock API çalışıyor ama canı çıkmış durumda...");
         }

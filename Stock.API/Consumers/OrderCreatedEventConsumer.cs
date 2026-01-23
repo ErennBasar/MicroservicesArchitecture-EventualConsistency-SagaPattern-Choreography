@@ -32,10 +32,6 @@ public class OrderCreatedEventConsumer : IConsumer<OrderCreatedEvent>
 
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
     {
-        
-        Console.WriteLine($"[HATA SİMÜLASYONU] Veritabanı hatası fırlatılıyor... Zaman: {DateTime.Now}");
-        throw new Exception("Stock API veritabanına erişemedi!");
-        
         var correlationId = context.CorrelationId;
         
         _logger.LogInformation("Message received. CorrelationID: {CorrelationId}, OrderId: {OrderId}", 

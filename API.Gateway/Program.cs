@@ -25,7 +25,6 @@ builder.Services.AddOcelot()
     .AddEureka()
     .AddPolly();
 
-
 var app = builder.Build();
 
 // 3. Ocelot Middleware'ini Kullan
