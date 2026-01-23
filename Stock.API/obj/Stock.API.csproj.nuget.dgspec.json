@@ -415,6 +415,10 @@
               "target": "Package",
               "version": "[6.1.0, )"
             },
+            "Steeltoe.Discovery.Eureka": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[10.1.0, )"

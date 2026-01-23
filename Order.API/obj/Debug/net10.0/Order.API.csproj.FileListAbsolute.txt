@@ -275,3 +275,10 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/NLog.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/NLog.Extensions.Logging.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/NLog.Web.AspNetCore.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Common.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Common.Certificates.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Common.Hosting.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Common.Http.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Configuration.Abstractions.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Configuration.CloudFoundry.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Discovery.Eureka.dll

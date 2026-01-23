@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "E2B4J3BhU0w=",
+  "dgSpecHash": "UM4K5SaepE4=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/Stock.API.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,13 @@
     "/Users/erenbasar/.nuget/packages/rabbitmq.client/7.2.0/rabbitmq.client.7.2.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/sharpcompress/0.30.1/sharpcompress.0.30.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/snappier/1.0.0/snappier.1.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.common/4.0.0/steeltoe.common.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.common.certificates/4.0.0/steeltoe.common.certificates.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.common.hosting/4.0.0/steeltoe.common.hosting.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.common.http/4.0.0/steeltoe.common.http.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.configuration.abstractions/4.0.0/steeltoe.configuration.abstractions.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.configuration.cloudfoundry/4.0.0/steeltoe.configuration.cloudfoundry.4.0.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/steeltoe.discovery.eureka/4.0.0/steeltoe.discovery.eureka.4.0.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/swashbuckle.aspnetcore.swagger/10.1.0/swashbuckle.aspnetcore.swagger.10.1.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/swashbuckle.aspnetcore.swaggergen/10.1.0/swashbuckle.aspnetcore.swaggergen.10.1.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/swashbuckle.aspnetcore.swaggerui/10.1.0/swashbuckle.aspnetcore.swaggerui.10.1.0.nupkg.sha512",

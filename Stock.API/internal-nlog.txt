@@ -24,3 +24,11 @@
 2026-01-20 23:17:05.7460 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
 2026-01-20 23:17:05.7480 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.6.4706. Product version: 6.0.6+1913a823347d47c0b004ce714af74436261daf20. GlobalAssemblyCache: False
 2026-01-20 23:17:05.7923 Info Configuration initialized: TargetNames=allfile, lifetimeConsole, ConfigItems=26, AutoReload=true, FilePath=/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/nlog.config
+2026-01-22 17:53:27.6687 Info Registered target NLog.Targets.FileTarget(Name=allfile)
+2026-01-22 17:53:27.6754 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2026-01-22 17:53:27.6773 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.6.4706. Product version: 6.0.6+1913a823347d47c0b004ce714af74436261daf20. GlobalAssemblyCache: False
+2026-01-22 17:53:27.7215 Info Configuration initialized: TargetNames=allfile, lifetimeConsole, ConfigItems=26, AutoReload=true, FilePath=/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/nlog.config
+2026-01-22 20:46:52.0735 Info Registered target NLog.Targets.FileTarget(Name=allfile)
+2026-01-22 20:46:52.0794 Info Registered target NLog.Targets.ConsoleTarget(Name=lifetimeConsole)
+2026-01-22 20:46:52.0810 Info NLog, Version=6.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 6.0.6.4706. Product version: 6.0.6+1913a823347d47c0b004ce714af74436261daf20. GlobalAssemblyCache: False
+2026-01-22 20:46:52.1181 Info Configuration initialized: TargetNames=allfile, lifetimeConsole, ConfigItems=26, AutoReload=true, FilePath=/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Stock.API/nlog.config

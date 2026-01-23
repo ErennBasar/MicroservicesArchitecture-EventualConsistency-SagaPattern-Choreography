@@ -13,6 +13,7 @@ using Order.API.Services.Abstractions;
 using Order.API.Services.Concretes;
 using Shared;
 using Shared.Events;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,7 +21,8 @@ builder.Host.UseNLog();
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddSwaggerGen();  
+builder.Services.AddSwaggerGen();
+builder.Services.AddEurekaDiscoveryClient();
 
 builder.Services.AddDbContext<OrderApiDbContext>(options =>
 {
@@ -41,7 +43,7 @@ builder.Services.AddMassTransit(cfg =>
     
     cfg.AddEntityFrameworkOutbox<OrderApiDbContext>(outbox =>
     {
-        outbox.QueryDelay = TimeSpan.FromSeconds(5); // 5 saniyede bir kuyruğu kontrol et
+        outbox.QueryDelay = TimeSpan.FromSeconds(30); // 5 saniyede bir kuyruğu kontrol et
         outbox.UsePostgres(); 
         outbox.UseBusOutbox(); // "Namus" ayarı: Event'leri direkt atma, önce Outbox'a koy.
     });

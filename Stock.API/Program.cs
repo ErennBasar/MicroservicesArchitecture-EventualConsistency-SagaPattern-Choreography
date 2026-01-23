@@ -8,13 +8,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using NLog.Web;
 using RabbitMQ.Client;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseNLog();
 
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddEurekaDiscoveryClient();
 builder.Services.AddSingleton<MongoDbService>();
 
 //  Consumer'ın veya Controller'ın kullanacağı Collection'ı servisten alıp dağıt
@@ -121,6 +124,7 @@ if (app.Environment.IsDevelopment())
     
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 
 using (var scope = app.Services.CreateScope())

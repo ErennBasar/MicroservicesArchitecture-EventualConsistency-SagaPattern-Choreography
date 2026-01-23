@@ -2236,6 +2236,131 @@
           }
         }
       },
+      "Steeltoe.Common/4.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Steeltoe.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Common.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Common.Certificates/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Common.Certificates.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Common.Certificates.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net8.0/Steeltoe.Common.Certificates.targets": {}
+        }
+      },
+      "Steeltoe.Common.Hosting/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Common.Hosting.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Common.Hosting.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Steeltoe.Common.Http/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common": "4.0.0",
+          "Steeltoe.Common.Certificates": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Common.Http.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Common.Http.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Configuration.Abstractions/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Configuration.Abstractions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Configuration.CloudFoundry/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common.Hosting": "4.0.0",
+          "Steeltoe.Configuration.Abstractions": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Configuration.CloudFoundry.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Configuration.CloudFoundry.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Steeltoe.Discovery.Eureka/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Steeltoe.Common.Certificates": "4.0.0",
+          "Steeltoe.Common.Http": "4.0.0",
+          "Steeltoe.Configuration.CloudFoundry": "4.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Steeltoe.Discovery.Eureka.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Steeltoe.Discovery.Eureka.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ],
+        "build": {
+          "buildTransitive/net8.0/Steeltoe.Discovery.Eureka.targets": {}
+        }
+      },
       "Swashbuckle.AspNetCore.Swagger/10.1.0": {
         "type": "package",
         "dependencies": {
@@ -6207,6 +6332,115 @@
         "rabbitmq.client.nuspec"
       ]
     },
+    "Steeltoe.Common/4.0.0": {
+      "sha512": "I44ticLmwlrIRz3bUblnK9mAAUxAdCs595nwU4H8sjasQ2rx0IrueU2S5oyDAmAGcF0OtJHzPMJ0Hw09qnKppg==",
+      "type": "package",
+      "path": "steeltoe.common/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "lib/net8.0/Steeltoe.Common.dll",
+        "lib/net8.0/Steeltoe.Common.xml",
+        "steeltoe.common.4.0.0.nupkg.sha512",
+        "steeltoe.common.nuspec"
+      ]
+    },
+    "Steeltoe.Common.Certificates/4.0.0": {
+      "sha512": "OyO0nySE11yrrcteDmW19TpCU+9+3oSxvnbTsKgUgQOM/USOXD1EfxqQ7KW480SArLcXZdK81ezS+Zpux4I4XA==",
+      "type": "package",
+      "path": "steeltoe.common.certificates/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ConfigurationSchema.json",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "buildTransitive/net8.0/Steeltoe.Common.Certificates.targets",
+        "lib/net8.0/Steeltoe.Common.Certificates.dll",
+        "lib/net8.0/Steeltoe.Common.Certificates.xml",
+        "steeltoe.common.certificates.4.0.0.nupkg.sha512",
+        "steeltoe.common.certificates.nuspec"
+      ]
+    },
+    "Steeltoe.Common.Hosting/4.0.0": {
+      "sha512": "06Q77RX5C3JZdNb3j6CsY7vD8bKB/VcMUrweeBeAlRhjm6zA7O+LS/LyRYkvlkLgIYN4eIS07Ju41Ed9Yp62DA==",
+      "type": "package",
+      "path": "steeltoe.common.hosting/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "lib/net8.0/Steeltoe.Common.Hosting.dll",
+        "lib/net8.0/Steeltoe.Common.Hosting.xml",
+        "steeltoe.common.hosting.4.0.0.nupkg.sha512",
+        "steeltoe.common.hosting.nuspec"
+      ]
+    },
+    "Steeltoe.Common.Http/4.0.0": {
+      "sha512": "9BTq58rID3n56xCNxykGl7hML/AwNzeOBsw6ljhYk4W+3zMYjSSN/bAhhb+dEdtw60CFgVdate2jUsMsgsVZVQ==",
+      "type": "package",
+      "path": "steeltoe.common.http/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "lib/net8.0/Steeltoe.Common.Http.dll",
+        "lib/net8.0/Steeltoe.Common.Http.xml",
+        "steeltoe.common.http.4.0.0.nupkg.sha512",
+        "steeltoe.common.http.nuspec"
+      ]
+    },
+    "Steeltoe.Configuration.Abstractions/4.0.0": {
+      "sha512": "s0/GRs7gpN5coGSV/dnWvNGCJWHijEaY0FXsHTxPP3LjDI9MeVSGVEukPkqCIVXyAgvcHKlyPu3hSBD5tnMUWA==",
+      "type": "package",
+      "path": "steeltoe.configuration.abstractions/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "lib/net8.0/Steeltoe.Configuration.Abstractions.dll",
+        "lib/net8.0/Steeltoe.Configuration.Abstractions.xml",
+        "steeltoe.configuration.abstractions.4.0.0.nupkg.sha512",
+        "steeltoe.configuration.abstractions.nuspec"
+      ]
+    },
+    "Steeltoe.Configuration.CloudFoundry/4.0.0": {
+      "sha512": "lH30l+eyLvVW3RatI3e+ft0WybkIY8gXUgK+gXe48BpTRDixLCL8nWCSVwgVU6jjV9hNUyz2L6fjJuDmad5+wQ==",
+      "type": "package",
+      "path": "steeltoe.configuration.cloudfoundry/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "lib/net8.0/Steeltoe.Configuration.CloudFoundry.dll",
+        "lib/net8.0/Steeltoe.Configuration.CloudFoundry.xml",
+        "steeltoe.configuration.cloudfoundry.4.0.0.nupkg.sha512",
+        "steeltoe.configuration.cloudfoundry.nuspec"
+      ]
+    },
+    "Steeltoe.Discovery.Eureka/4.0.0": {
+      "sha512": "cV6L/oHxREiy4PxB/Fm+dYxNcDA3bvkcA/43mjDL8MegS+2aZKOMKESEVcvqOWNkHijecHDv7ZnqquTrTYV7TQ==",
+      "type": "package",
+      "path": "steeltoe.discovery.eureka/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "ConfigurationSchema.json",
+        "PackageIcon.png",
+        "PackageReadme.md",
+        "buildTransitive/net8.0/Steeltoe.Discovery.Eureka.targets",
+        "lib/net8.0/Steeltoe.Discovery.Eureka.dll",
+        "lib/net8.0/Steeltoe.Discovery.Eureka.xml",
+        "steeltoe.discovery.eureka.4.0.0.nupkg.sha512",
+        "steeltoe.discovery.eureka.nuspec"
+      ]
+    },
     "Swashbuckle.AspNetCore.Swagger/10.1.0": {
       "sha512": "9Kp35Jhkzw73UXnvgGWVgRjvfGx5h1V4fdL9JcPZMKoTyO/bnKD/1i86n8u2p+rVTDed0cDSH4PKbX4WicZ/gg==",
       "type": "package",
@@ -6757,6 +6991,7 @@
       "NLog.Web.AspNetCore >= 6.1.0",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 10.0.0",
       "Shared >= 1.0.0",
+      "Steeltoe.Discovery.Eureka >= 4.0.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 10.1.0",
       "Swashbuckle.AspNetCore.SwaggerUI >= 10.1.0"
     ]
@@ -6844,6 +7079,10 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
             "version": "[10.0.0, )"
+          },
+          "Steeltoe.Discovery.Eureka": {
+            "target": "Package",
+            "version": "[4.0.0, )"
           },
           "Swashbuckle.AspNetCore.SwaggerGen": {
             "target": "Package",

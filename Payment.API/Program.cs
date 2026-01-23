@@ -4,10 +4,14 @@ using NLog.Web;
 using Payment.API.Consumers;
 using Payment.API.Models;
 using Shared;
+using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseNLog();
+
+builder.Services.AddEurekaDiscoveryClient();
+builder.Services.AddControllers();
 
 builder.Services.AddDbContext<PaymentDbContext>(options =>
 {
@@ -41,7 +45,8 @@ builder.Services.AddMassTransit(configurator =>
 
 var app = builder.Build();
 
- 
+app.MapControllers();
+
 if (app.Environment.IsDevelopment())
 {
     
