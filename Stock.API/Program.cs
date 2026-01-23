@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using NLog.Web;
 using RabbitMQ.Client;
+using Shared.Events;
 using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -64,6 +65,11 @@ builder.Services.AddMassTransit(cfg =>
                 
             configurator.Host(new Uri(rabbitMqUri));
         }
+        configurator.ReceiveEndpoint(RabbitMqSettings.StockOrderCreatedEventQueue, s =>
+        {
+            s.UseMessageRetry(r => r.Interval(3, TimeSpan.FromSeconds(5)));
+            s.ConfigureConsumer<OrderCreatedEventConsumer>(context);
+        });
         
         // configurator.ReceiveEndpoint(RabbitMqSettings.StockOrderCreatedEventQueue, e => 
         //     e.ConfigureConsumer<OrderCreatedEventConsumer>(context));

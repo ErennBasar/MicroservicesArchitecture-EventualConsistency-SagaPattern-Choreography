@@ -3,6 +3,8 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)steeltoe.common.certificates/4.0.0/buildTransitive/net8.0/Steeltoe.Common.Certificates.targets" Condition="Exists('$(NuGetPackageRoot)steeltoe.common.certificates/4.0.0/buildTransitive/net8.0/Steeltoe.Common.Certificates.targets')" />
     <Import Project="$(NuGetPackageRoot)steeltoe.discovery.eureka/4.0.0/buildTransitive/net8.0/Steeltoe.Discovery.Eureka.targets" Condition="Exists('$(NuGetPackageRoot)steeltoe.discovery.eureka/4.0.0/buildTransitive/net8.0/Steeltoe.Discovery.Eureka.targets')" />
+    <Import Project="$(NuGetPackageRoot)mono.texttemplating/3.0.0/buildTransitive/Mono.TextTemplating.targets" Condition="Exists('$(NuGetPackageRoot)mono.texttemplating/3.0.0/buildTransitive/Mono.TextTemplating.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers/3.11.0/buildTransitive/Microsoft.CodeAnalysis.Analyzers.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers/3.11.0/buildTransitive/Microsoft.CodeAnalysis.Analyzers.targets')" />
     <Import Project="$(NuGetPackageRoot)microsoft.aspnetcore.openapi/10.0.1/build/Microsoft.AspNetCore.OpenApi.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.aspnetcore.openapi/10.0.1/build/Microsoft.AspNetCore.OpenApi.targets')" />
   </ImportGroup>
 </Project>

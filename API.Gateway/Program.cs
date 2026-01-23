@@ -1,6 +1,7 @@
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Eureka;
+using Ocelot.Provider.Polly;
 using Steeltoe.Discovery.Client;
 using Steeltoe.Discovery.Eureka;
 
@@ -20,7 +21,9 @@ builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange
 builder.Services.AddDiscoveryClient(builder.Configuration);
 
 // 2. Ocelot Servislerini Ekle
-builder.Services.AddOcelot().AddEureka();
+builder.Services.AddOcelot()
+    .AddEureka()
+    .AddPolly();
 
 
 var app = builder.Build();
