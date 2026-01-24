@@ -1,5 +1,6 @@
 using MassTransit;
 using MediatR;
+using Order.API.DomainEvents;
 using Order.API.Models;
 using Order.API.Models.Entities;
 using Order.API.Models.Enums;
@@ -12,14 +13,16 @@ namespace Order.API.Features.Orders.Commands.CreateOrder;
 public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandRequest, CreateOrderCommandResponse>
 {
     private readonly EventStoreService _eventStoreService;
+    private readonly IPublisher _publisher;
     
     // private readonly OrderApiDbContext _dbContext;
     // private readonly IPublishEndpoint _publishEndpoint;
 
-    public CreateOrderCommandHandler(OrderApiDbContext dbContext, IPublishEndpoint publishEndpoint, EventStoreService eventStoreService)
+    public CreateOrderCommandHandler(OrderApiDbContext dbContext, IPublishEndpoint publishEndpoint, EventStoreService eventStoreService, IPublisher publisher)
     {
         _eventStoreService = eventStoreService;
-        
+        _publisher = publisher;
+
         // _dbContext = dbContext;
         // _publishEndpoint = publishEndpoint;
     }
@@ -29,6 +32,16 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommandReque
         // 1. Önce gerekli ID'leri oluşturalım
         var orderId = Guid.NewGuid();
         var correlationId = Guid.NewGuid();
+        var totalPrice = request.OrderItems.Sum(x => x.Count * x.Price);
+
+        await _publisher.Publish(new OrderStartedDomainEvent
+        {
+            OrderId = orderId,
+            CustomerId = request.CustomerId,
+            TotalPrice = totalPrice,
+            OrderDate = DateTime.UtcNow
+            
+        },cancellationToken);
 
         // 2. Olayı (Event) Hazırla
         // Bu olay artık bizim veritabanı satırımız gibi davranacak.
