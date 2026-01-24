@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OnQfDvYksXo=",
+  "dgSpecHash": "yznR8v65iFA=",
   "success": true,
   "projectFilePath": "/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/Order.API.csproj",
   "expectedPackageFiles": [
@@ -95,6 +95,7 @@
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.analyzers/10.0.1/microsoft.entityframeworkcore.analyzers.10.0.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.design/10.0.1/microsoft.entityframeworkcore.design.10.0.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.entityframeworkcore.relational/10.0.1/microsoft.entityframeworkcore.relational.10.0.1.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/microsoft.extensions.caching.stackexchangeredis/10.0.2/microsoft.extensions.caching.stackexchangeredis.10.0.2.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.extensions.dependencymodel/10.0.1/microsoft.extensions.dependencymodel.10.0.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.identitymodel.abstractions/8.14.0/microsoft.identitymodel.abstractions.8.14.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/microsoft.identitymodel.jsonwebtokens/8.14.0/microsoft.identitymodel.jsonwebtokens.8.14.0.nupkg.sha512",
@@ -125,7 +126,9 @@
     "/Users/erenbasar/.nuget/packages/nuget.projectmodel/6.12.1/nuget.projectmodel.6.12.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/nuget.protocol/6.12.1/nuget.protocol.6.12.1.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/nuget.versioning/6.12.1/nuget.versioning.6.12.1.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/pipelines.sockets.unofficial/2.2.8/pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/rabbitmq.client/7.2.0/rabbitmq.client.7.2.0.nupkg.sha512",
+    "/Users/erenbasar/.nuget/packages/stackexchange.redis/2.7.27/stackexchange.redis.2.7.27.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/steeltoe.common/4.0.0/steeltoe.common.4.0.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/steeltoe.common.certificates/4.0.0/steeltoe.common.certificates.4.0.0.nupkg.sha512",
     "/Users/erenbasar/.nuget/packages/steeltoe.common.hosting/4.0.0/steeltoe.common.hosting.4.0.0.nupkg.sha512",

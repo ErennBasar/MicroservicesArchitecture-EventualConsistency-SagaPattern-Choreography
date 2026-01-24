@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Order.API.DTOs;
 using Order.API.Features.Orders.Commands.CreateOrder;
+using Order.API.Features.Orders.Queries.GetOrderById;
 using Order.API.Services.Abstractions;
 
 namespace Order.API.Controllers
@@ -29,6 +30,18 @@ namespace Order.API.Controllers
                 return Ok(response);
             
             return BadRequest(response.Message);
+        }
+        
+        [HttpGet("{orderId}")] // URL Örneği: api/orders/b36cd...
+        public async Task<IActionResult> GetOrderById(Guid orderId)
+        {
+            // Mediator'a ID'yi paketleyip gönderiyoruz
+            OrderDto response = await _mediator.Send(new GetOrderByIdQueryRequest(orderId));
+
+            if (response == null)
+                return NotFound("Böyle bir sipariş bulunamadı usta.");
+
+            return Ok(response);
         }
     }
 }

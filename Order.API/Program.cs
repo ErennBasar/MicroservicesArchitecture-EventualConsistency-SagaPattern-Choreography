@@ -24,6 +24,12 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEurekaDiscoveryClient();
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "OrderAPI_";
+});
+
 builder.Services.AddDbContext<OrderApiDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("OrderDbPgSQL"));

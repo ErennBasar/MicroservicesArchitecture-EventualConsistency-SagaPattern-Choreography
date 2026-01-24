@@ -9,6 +9,11 @@
       "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
       "LoadBalancerOptions": {
         "Type": "RoundRobin"
+      },
+      "Priority": 100,  
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": null,
+        "AllowedScopes": []
       }
     },
     {

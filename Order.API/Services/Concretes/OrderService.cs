@@ -1,4 +1,5 @@
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Order.API.DTOs;
 using Order.API.Models;
 using Order.API.Models.Entities;
@@ -63,5 +64,13 @@ public class OrderService : IOrderService
         await _publishEndPoint.Publish(orderCreatedEvent);
         //Tek seferde hem Siparişi hem de Mesajı veritabanına gömüyoruz.
         await _dbContext.SaveChangesAsync();
+    }
+
+    public async Task<Models.Entities.Order> GetOrderByIdAsync(Guid orderId)
+    {
+        // .Include(o => o.OrderItems) ÇOK ÖNEMLİ! Yoksa items null veya boş gelir.
+        return await _dbContext.Orders
+            .Include(o => o.OrderItems) 
+            .FirstOrDefaultAsync(o => o.OrderId == orderId);
     }
 }

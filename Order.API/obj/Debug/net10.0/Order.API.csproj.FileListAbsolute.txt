@@ -282,3 +282,6 @@
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Configuration.Abstractions.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Configuration.CloudFoundry.dll
 /Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Steeltoe.Discovery.Eureka.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Microsoft.Extensions.Caching.StackExchangeRedis.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/Pipelines.Sockets.Unofficial.dll
+/Users/erenbasar/Projects/Microservice.Example2/Microservice.Example2/Order.API/bin/Debug/net10.0/StackExchange.Redis.dll
