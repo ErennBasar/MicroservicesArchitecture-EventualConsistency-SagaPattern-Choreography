@@ -12,8 +12,7 @@
       },
       "Priority": 100,  
       "AuthenticationOptions": {
-        "AuthenticationProviderKey": null,
-        "AllowedScopes": []
+        "AuthenticationProviderKey": "GatewayAuthScheme"
       }
     },
     {

@@ -1,3 +1,5 @@
+using System.Text;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Eureka;
@@ -7,12 +9,21 @@ using Steeltoe.Discovery.Eureka;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+var secretKey = builder.Configuration["JwtSettings:SecretKey"];
+    
 builder.Services.AddAuthentication().AddJwtBearer("GatewayAuthScheme", options =>
 {
-    options.Authority = builder.Configuration["IdentityServerUrl"];
-    options.Audience = "ResourceGateway";
-    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+            
+        
+        ValidateIssuer = false, 
+        ValidateAudience = false, 
+            
+        ClockSkew = TimeSpan.Zero
+    };
 });
 
 // 1. Ocelot.json dosyasını konfigürasyona ekle
@@ -28,6 +39,7 @@ builder.Services.AddOcelot()
 var app = builder.Build();
 
 // 3. Ocelot Middleware'ini Kullan
-await app.UseOcelot();
+app.UseAuthentication(); // Önce kimlik sor
+await app.UseOcelot(); // Sonra yönlendir
 
 app.Run();

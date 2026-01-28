@@ -13,6 +13,12 @@
         <PackageReference Include="Ocelot.Provider.Eureka" Version="24.1.0" />
         <PackageReference Include="Ocelot.Provider.Polly" Version="24.1.0" />
         <PackageReference Include="Steeltoe.Discovery.Eureka" Version="3.3.0" />
+        <Content Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="ocelot.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

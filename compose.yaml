@@ -11,6 +11,8 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     restart: always
+    networks: 
+      - microservice-network
 
   # 2. POSTGRESQL (Order.API için)
   postgres:
@@ -25,6 +27,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     restart: always
+    networks:
+      - microservice-network
 
   # 3. MONGODB (Stock.API için)
   mongo:
@@ -96,6 +100,27 @@ services:
     volumes:
       - eventstore_data:/var/lib/eventstore
     restart: always
+    networks: 
+      - microservice-network
+    
+  AuthService:  
+    image: ${DOCKER_REGISTRY-}authservice
+    container_name: auth.service
+    build:
+      context: .
+      dockerfile: Identity.API/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ConnectionStrings__DefaultConnection=Server=postgres;Port=5432;Database=IdentityDb;User Id=saiteren;Password=Password12*;
+      - JwtSettings__Issuer=http://localhost:5001
+      - JwtSettings__Audience=http://localhost:5000
+    ports:
+      - "5001:8080" # Dışarıdan 5001, içeriden 8080
+    networks:
+      - microservice-network
+    depends_on:
+      - postgres
 
 volumes:
   rabbitmq_data:

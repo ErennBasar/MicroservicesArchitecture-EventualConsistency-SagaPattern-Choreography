@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Gateway", "API.Gateway\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Gateway.YARP", "API.Gateway.YARP\API.Gateway.YARP.csproj", "{8DD3B56A-D646-4955-9EE1-B2566941355A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.API", "Identity.API\Identity.API.csproj", "{3BC466BB-3653-4DAD-975B-76DE48AD9480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,9 @@ Global
 		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DD3B56A-D646-4955-9EE1-B2566941355A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BC466BB-3653-4DAD-975B-76DE48AD9480}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BC466BB-3653-4DAD-975B-76DE48AD9480}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BC466BB-3653-4DAD-975B-76DE48AD9480}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BC466BB-3653-4DAD-975B-76DE48AD9480}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
